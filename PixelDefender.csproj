@@ -8,6 +8,36 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="assets\sprites\ennemy1.png" />
+    <None Remove="assets\sprites\ennemy2.png" />
+    <None Remove="assets\sprites\ennemy3.png" />
+    <None Remove="assets\sprites\ennemy4.png" />
+    <None Remove="assets\sprites\player.png" />
+    <None Remove="assets\sprites\shoot.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="assets\sprites\ennemy1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\sprites\ennemy2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\sprites\ennemy3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\sprites\ennemy4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\sprites\player.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="assets\sprites\shoot.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Raylib-cs" Version="7.0.1" />
   </ItemGroup>
 
