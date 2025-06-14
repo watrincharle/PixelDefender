@@ -1,7 +1,7 @@
 ﻿
 public static class Lists
 {
-    public static List<BaseShip> ennemyList = new List<BaseShip>();
+    public static List<Enemy> ennemyList = new();
     public static List<Shoot> shootList = new List<Shoot>();
 }
 

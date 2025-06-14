@@ -11,27 +11,22 @@ static class Program
         Images.LoadImages();
         Sprites.LoadSprites();
 
-
-
-
-
-
         while (!Raylib.WindowShouldClose())
         {
             Level0.Start();
             //---------------------------------UPDATE------------------------------
             Player.PlayerUpdate(Raylib.GetMouseX(), Raylib.GetMouseY());
-            foreach (BaseShip e in Lists.ennemyList)
+            foreach (var enemy in Lists.ennemyList)
             {
-                e.Update();
-                if (e.isShooting)
+                enemy.Update();
+                if (enemy.isShooting)
                 {
-                    Lists.shootList.Add(new Shoot(e.posX + Sprites.Ennemy1Sprite.Width / 2, e.posY + Sprites.Ennemy1Sprite.Height, 1));
-                    Console.WriteLine(e.posY); 
+                    Lists.shootList.Add(new Shoot(enemy.posX + Sprites.Ennemy1Sprite.Width / 2, enemy.posY + Sprites.Ennemy1Sprite.Height, 1));
+                    Console.WriteLine(enemy.posY);
                 }
-                if (!e.isAlive)
+                if (!enemy.isAlive)
                 {
-                    Lists.ennemyList.Remove(e);
+                    Lists.ennemyList.Remove(enemy);
                     break;
                 }
             }
@@ -63,27 +58,11 @@ static class Program
             Level0.Draw();
             Draw.DrawSprites(Sprites.PlayerSprite, Player.posX, Player.posY);
 
-            foreach (BaseShip bs in Lists.ennemyList)
-            {
-                if (bs is Ennemy1 e1)
-                {
-                    Draw.DrawSprites(Sprites.Ennemy1Sprite, e1.posX, e1.posY);
-                }
-                else if (bs is Ennemy2 e2)
-                {
-                    Draw.DrawSprites(Sprites.Ennemy2Sprite, e2.posX, e2.posY);
-                }
-                else if (bs is Ennemy3 e3)
-                {
-                    Draw.DrawSprites(Sprites.Ennemy3Sprite, e3.posX, e3.posY);
-                }
-                else if (bs is Ennemy4 e4)
-                {
-                    Draw.DrawSprites(Sprites.Ennemy4Sprite, e4.posX, e4.posY);
-                }
-            }
+            foreach (var enemy in Lists.ennemyList)
+                Draw.DrawSprites(enemy.sprite, enemy.posX, enemy.posY);
 
-           
+
+
             foreach (Shoot sd in Lists.shootList)
             {
                 Draw.DrawSprites(Sprites.ShootSprite, sd.posX, sd.posY);

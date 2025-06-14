@@ -12,16 +12,18 @@ class Collision
 
     private static void CheckCollisionEnnemy()
     {
-        foreach (BaseShip b in Lists.ennemyList)
+        int spriteWidth = Sprites.Ennemy1Sprite.Width;
+        int spriteHeight = Sprites.Ennemy1Sprite.Height;
+        foreach (var enemy in Lists.ennemyList)
         {
             foreach (Shoot s in Lists.shootList)
             {
                 if (s.orientation == -1)
                 {
-                    if (s.posX + Sprites.ShootSprite.Width >= b.posX && s.posX <= b.posX + Sprites.Ennemy1Sprite.Width && s.posY + Sprites.ShootSprite.Height >= b.posY && s.posY <= b.posY + Sprites.Ennemy1Sprite.Height)
+                    if (s.posX + Sprites.ShootSprite.Width >= enemy.posX && s.posX <= enemy.posX + spriteWidth && s.posY + spriteHeight >= enemy.posY && s.posY <= enemy.posY + spriteHeight)
                     {
                         Lists.shootList.Remove(s);
-                        b.TakeDamage();
+                        enemy.TakeDamage();
                         break;
                     }
                 }
@@ -31,11 +33,13 @@ class Collision
     }
     private static void CheckCollisionPlayer()
     {
+        int spriteWidth = Sprites.PlayerSprite.Width;
+        int spriteHeight = Sprites.PlayerSprite.Height;
         foreach (Shoot ss in Lists.shootList)
         {
             if (ss.orientation == 1)
             {
-                if (ss.posX + Sprites.ShootSprite.Width >= Player.posX && ss.posX <= Player.posX + Sprites.PlayerSprite.Width && ss.posY + Sprites.ShootSprite.Height >= Player.posY && ss.posY <= Player.posY + Sprites.PlayerSprite.Height)
+                if (ss.posX + Sprites.ShootSprite.Width >= Player.posX && ss.posX <= Player.posX + spriteWidth && ss.posY + spriteHeight >= Player.posY && ss.posY <= Player.posY + spriteHeight)
                 {
                     Lists.shootList.Remove(ss);
                     Player.TakeDamage();
@@ -47,11 +51,15 @@ class Collision
     }
     private static void CheckCollisionPlayerOnEnnemy()
     {
-        foreach (BaseShip e in Lists.ennemyList)
+        int enemySpriteWidth = Sprites.Ennemy1Sprite.Width;
+        int enemySpriteHeight = Sprites.Ennemy1Sprite.Height;
+        int playerSpriteWidth = Sprites.PlayerSprite.Width;
+        int playerSpriteHeight = Sprites.PlayerSprite.Height;
+        foreach (var enemy in Lists.ennemyList)
         {
-            if (e.posX + Sprites.Ennemy1Sprite.Width >= Player.posX && e.posX <= Player.posX + Sprites.PlayerSprite.Width && e.posY + Sprites.Ennemy1Sprite.Height >= Player.posY && e.posY <= Player.posY + Sprites.PlayerSprite.Height)
+            if (enemy.posX + enemySpriteWidth >= Player.posX && enemy.posX <= Player.posX + playerSpriteWidth && enemy.posY + enemySpriteHeight >= Player.posY && enemy.posY <= Player.posY + playerSpriteHeight)
             {
-                Lists.ennemyList.Remove(e);
+                Lists.ennemyList.Remove(enemy);
                 Player.TakeDamage();
             }
         }

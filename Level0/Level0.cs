@@ -44,47 +44,47 @@ public static class Level0
         {
             if (!isWave101Launched)
             {
-                Lists.ennemyList.Add(new Ennemy1(100, 0));
-                Lists.ennemyList.Add(new Ennemy1(300, 0));
-                Lists.ennemyList.Add(new Ennemy1(500, 0));
-                Lists.ennemyList.Add(new Ennemy1(700, 0));
-                Lists.ennemyList.Add(new Ennemy1(900, 0));
+                Lists.ennemyList.Add(new Enemy(100, 0, 3));
+                Lists.ennemyList.Add(new Enemy(300, 0, 3));
+                Lists.ennemyList.Add(new Enemy(500, 0, 3));
+                Lists.ennemyList.Add(new Enemy(700, 0, 3));
+                Lists.ennemyList.Add(new Enemy(900, 0, 3));
                 isWave101Launched = true;
             }
             if (isWave101Launched && Lists.ennemyList.Count == 0 && !isWave102Launched)
             {
-                Lists.ennemyList.Add(new Ennemy2(100, 0));
-                Lists.ennemyList.Add(new Ennemy2(300, 0));
-                Lists.ennemyList.Add(new Ennemy2(500, 0));
-                Lists.ennemyList.Add(new Ennemy2(700, 0));
-                Lists.ennemyList.Add(new Ennemy2(900, 0));
+                Lists.ennemyList.Add(new Enemy(100, 0, 4));
+                Lists.ennemyList.Add(new Enemy(300, 0, 4));
+                Lists.ennemyList.Add(new Enemy(500, 0, 4));
+                Lists.ennemyList.Add(new Enemy(700, 0, 4));
+                Lists.ennemyList.Add(new Enemy(900, 0, 4));
                 isWave102Launched = true;
             }
             if (isWave101Launched && Lists.ennemyList.Count == 0 && !isWave103Launched)
             {
-                Lists.ennemyList.Add(new Ennemy3(100, 0));
-                Lists.ennemyList.Add(new Ennemy3(300, 0));
-                Lists.ennemyList.Add(new Ennemy3(500, 0));
-                Lists.ennemyList.Add(new Ennemy3(700, 0));
-                Lists.ennemyList.Add(new Ennemy3(900, 0));
+                Lists.ennemyList.Add(new Enemy(100, 0, 5));
+                Lists.ennemyList.Add(new Enemy(300, 0, 5));
+                Lists.ennemyList.Add(new Enemy(500, 0, 5));
+                Lists.ennemyList.Add(new Enemy(700, 0, 5));
+                Lists.ennemyList.Add(new Enemy(900, 0, 5));
                 isWave103Launched = true;
             }
             if (isWave101Launched && Lists.ennemyList.Count == 0 && !isWave104Launched)
             {
-                Lists.ennemyList.Add(new Ennemy4(100, 0));
-                Lists.ennemyList.Add(new Ennemy4(300, 0));
-                Lists.ennemyList.Add(new Ennemy4(500, 0));
-                Lists.ennemyList.Add(new Ennemy4(700, 0));
-                Lists.ennemyList.Add(new Ennemy4(900, 0));
+                Lists.ennemyList.Add(new Enemy(100, 0, 10));
+                Lists.ennemyList.Add(new Enemy(300, 0, 10));
+                Lists.ennemyList.Add(new Enemy(500, 0, 10));
+                Lists.ennemyList.Add(new Enemy(700, 0, 10));
+                Lists.ennemyList.Add(new Enemy(900, 0, 10));
                 isWave104Launched = true;
             }
             if (isWave101Launched && Lists.ennemyList.Count == 0 && !isWave105Launched)
             {
-                Lists.ennemyList.Add(new Ennemy1(100, 0));
-                Lists.ennemyList.Add(new Ennemy2(300, 0));
-                Lists.ennemyList.Add(new Ennemy3(500, 0));
-                Lists.ennemyList.Add(new Ennemy4(700, 0));
-                Lists.ennemyList.Add(new Ennemy1(900, 0));
+                Lists.ennemyList.Add(new Enemy(100, 0, 3));
+                Lists.ennemyList.Add(new Enemy(300, 0, 4));
+                Lists.ennemyList.Add(new Enemy(500, 0, 5));
+                Lists.ennemyList.Add(new Enemy(700, 0, 10));
+                Lists.ennemyList.Add(new Enemy(900, 0, 3));
                 isWave105Launched = true;
             }
 
@@ -104,36 +104,10 @@ public static class Level0
 
     private static void DropFromTheTop()
     {
-        foreach (BaseShip b in Lists.ennemyList)
+        foreach (var enemy in Lists.ennemyList)
         {
-            if (b is Ennemy1 e1)
-            {
-                if (e1.posY < 150)
-                {
-                    e1.posY += 5;
-                }
-            }
-            if (b is Ennemy2 e2)
-            {
-                if (e2.posY < 150)
-                {
-                    e2.posY += 5;
-                }
-            }
-            if (b is Ennemy3 e3)
-            {
-                if (e3.posY < 150)
-                {
-                    e3.posY += 5;
-                }
-            }
-            if (b is Ennemy4 e4)
-            {
-                if (e4.posY < 150)
-                {
-                    e4.posY += 5;
-                }
-            }
+            if (enemy.posY < 150)
+                enemy.posY += 5;
         }
     }
     public static void Draw()

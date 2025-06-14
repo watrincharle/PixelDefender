@@ -4,9 +4,10 @@ using Raylib_cs;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 
-public class BaseShip
+public class Enemy
 {
-    protected int life;
+    public Texture2D sprite;
+    public int life;
     public bool isAlive;
     public int posX;
     public int posY;
@@ -14,11 +15,30 @@ public class BaseShip
     protected double timerInstance = 0;
     public bool isShooting;
 
-    public BaseShip(int pPosX, int pPosY)
+    public Enemy(int pPosX, int pPosY, int life)
     {
         this.posX = pPosX;
         this.posY = pPosY;
         this.timer = timerInstance;
+        this.life = life;
+        switch (life)
+        {
+            case 3:
+                sprite = Sprites.Ennemy1Sprite;
+                break;
+            case 4:
+                sprite = Raylib.LoadTextureFromImage(Images.Ennemy2Img);
+                break;
+            case 5:
+                sprite = Raylib.LoadTextureFromImage(Images.Ennemy3Img);
+                break;
+            case 10:
+                sprite = Raylib.LoadTextureFromImage(Images.Ennemy4Img);
+                break;
+            default:
+                sprite = Sprites.Ennemy1Sprite;
+                break;
+        }
     }
 
     public void Update()
@@ -44,8 +64,6 @@ public class BaseShip
     protected void Shoot()
     {
         Console.WriteLine("Bang !");
-
-
     }
 
     protected bool ShootTimer()
@@ -64,14 +82,14 @@ public class BaseShip
         int timer = rand.Next(3, 10);
         return timer;
     }
-    virtual public void TakeDamage()
+    public void TakeDamage()
     {
         
+        life--;
     }
-    virtual protected bool IsDead()
+    public bool IsDead()
     {
-        
-        return false;
+        return life <= 0;
     }
 
 }
