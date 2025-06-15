@@ -4,11 +4,11 @@ using System.Numerics;
 
 public static class Menu
 {
-    private static int divW = 200;
-    private static int divH = 70;
+    public static int divW = 200;
+    public static int divH = 70;
     private static string play = "PLAY";
-    private static string exit = "EXIT";
-    private static int howToCenterADiv = (Raylib.GetScreenWidth() / 2) - (divW / 2);
+    public static string exit = "EXIT";
+    public static int howToCenterADiv = (Raylib.GetScreenWidth() / 2) - (divW / 2);
     public static int mX;
     public static int mY;
 

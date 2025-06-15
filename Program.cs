@@ -27,6 +27,7 @@ static class Program
             }
             else if (SceneManager.STATE == "Pause")
             {
+                Pause.Update();
                 if (Raylib.IsKeyPressed(KeyboardKey.P))
                 {
                     SceneManager.STATE = "Game";
