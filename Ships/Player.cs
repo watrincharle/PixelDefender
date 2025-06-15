@@ -12,7 +12,11 @@ static class Player
     public static int life = 5;
     public static bool isAlive = true;
 
-
+    public static void Init()
+    {
+        life = 5;
+        isAlive = true;
+    }
     public static void PlayerUpdate(int pX, int pY)
     {
         posX = pX - Sprites.PlayerSprite.Width / 2;

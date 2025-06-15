@@ -4,7 +4,7 @@ using Raylib_cs;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 
-public class BaseShip
+public class EnnemyParent
 {
     protected int life;
     public bool isAlive;
@@ -14,7 +14,7 @@ public class BaseShip
     protected double timerInstance = 0;
     public bool isShooting;
 
-    public BaseShip(int pPosX, int pPosY)
+    public EnnemyParent(int pPosX, int pPosY)
     {
         this.posX = pPosX;
         this.posY = pPosY;
@@ -28,8 +28,6 @@ public class BaseShip
         if (ShootTimer())
         {
             isShooting = true;
-            Shoot();
-
             timerInstance = RandomTimer();
         }
         else
@@ -40,12 +38,6 @@ public class BaseShip
         {
             isAlive = false;
         }
-    }
-    protected void Shoot()
-    {
-        Console.WriteLine("Bang !");
-
-
     }
 
     protected bool ShootTimer()
