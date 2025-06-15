@@ -1,4 +1,4 @@
-﻿public class Ennemy3 : BaseShip
+﻿public class Ennemy3 : EnnemyParent
 {
     public Ennemy3(int pPosX, int pPosY) : base(pPosX, pPosY)
     {

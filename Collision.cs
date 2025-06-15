@@ -1,18 +1,15 @@
 ﻿
 class Collision
-{
-
-
+{ 
     public static void Update()
     {
         CheckCollisionEnnemy();
         CheckCollisionPlayer();
         CheckCollisionPlayerOnEnnemy();
     }
-
-    private static void CheckCollisionEnnemy()
+    private static void CheckCollisionEnnemy()  // --------------- COLLISION ENNEMY/BULLET ---------------
     {
-        foreach (BaseShip b in Lists.ennemyList)
+        foreach (EnnemyParent b in Lists.ennemyList)
         {
             foreach (Shoot s in Lists.shootList)
             {
@@ -29,7 +26,7 @@ class Collision
             }
         }
     }
-    private static void CheckCollisionPlayer()
+    private static void CheckCollisionPlayer()  // --------------- COLLISION PLAYER/BULLET ---------------
     {
         foreach (Shoot ss in Lists.shootList)
         {
@@ -45,9 +42,9 @@ class Collision
 
         }
     }
-    private static void CheckCollisionPlayerOnEnnemy()
+    private static void CheckCollisionPlayerOnEnnemy()  // --------------- COLLISION PLAYER/ENNEMY ---------------
     {
-        foreach (BaseShip e in Lists.ennemyList)
+        foreach (EnnemyParent e in Lists.ennemyList)
         {
             if (e.posX + Sprites.Ennemy1Sprite.Width >= Player.posX && e.posX <= Player.posX + Sprites.PlayerSprite.Width && e.posY + Sprites.Ennemy1Sprite.Height >= Player.posY && e.posY <= Player.posY + Sprites.PlayerSprite.Height)
             {

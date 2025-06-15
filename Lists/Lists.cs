@@ -1,7 +1,13 @@
 ﻿
 public static class Lists
 {
-    public static List<BaseShip> ennemyList = new List<BaseShip>();
+    public static List<EnnemyParent> ennemyList = new List<EnnemyParent>();
     public static List<Shoot> shootList = new List<Shoot>();
+
+    public static void Init()
+    {
+        ennemyList.Clear();
+        shootList.Clear();
+    }
 }
 
